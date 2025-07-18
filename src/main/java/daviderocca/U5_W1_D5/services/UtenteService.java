@@ -20,6 +20,8 @@ public class UtenteService {
 
     public Utente saveUser(String username, String nome, String cognome, String email) {
 
+        if(utenteRepository.existsByUsername(username)) throw new ValidationException("Username " + username + " già in uso, inseriscine un altro!");
+
         if(utenteRepository.existsByEmail(email)) throw new ValidationException("Email " + email + " già in uso, inseriscine un altra!");
 
         if (nome.length() < 2) throw new ValidationException("Il nome non può essere più corto di 2 caratteri!");

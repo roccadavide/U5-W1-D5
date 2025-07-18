@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
 
+    //anche qui abbastanza semplice con l'aiuto di spring
     boolean existsByPostazioneIdAndDataPrenotazione(Long postazioneId, LocalDate dataPrenotazione);
 
     boolean existsByUtente_UsernameAndDataPrenotazione(String usernameUtente, LocalDate dataPrenotazione);
